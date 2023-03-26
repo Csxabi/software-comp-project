@@ -2,11 +2,15 @@ package at.fhtw.swen3.services.dto;
 
 import java.util.Objects;
 
+import at.fhtw.swen3.persistence.entities.TruckEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import javax.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
 
 
 import javax.annotation.Generated;
@@ -17,7 +21,9 @@ import javax.annotation.Generated;
 
 
 @JsonTypeName("truck")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-23T12:35:41.388911Z[Etc/UTC]")
+//@Builder
+//@EqualsAndHashCode(callSuper = true)
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-22T13:39:57.022856Z[Etc/UTC]")
 public class Truck extends Hop {
 
   @JsonProperty("regionGeoJson")
@@ -25,6 +31,12 @@ public class Truck extends Hop {
 
   @JsonProperty("numberPlate")
   private String numberPlate;
+
+  public Truck(String hopType, String code, String description, Integer processingDelayMins, String locationName, GeoCoordinate locationCoordinates, String regionGeoJson, String numberPlate) {
+    super(hopType, code, description, processingDelayMins, locationName, locationCoordinates);
+    this.regionGeoJson = regionGeoJson;
+    this.numberPlate = numberPlate;
+  }
 
   public Truck regionGeoJson(String regionGeoJson) {
     this.regionGeoJson = regionGeoJson;
@@ -34,8 +46,8 @@ public class Truck extends Hop {
   /**
    * GeoJSON (https://geojson.org/) of the area covered by the truck.
    * @return regionGeoJson
-  */
-  @NotNull 
+   */
+  @NotNull
   @Schema(name = "regionGeoJson", description = "GeoJSON (https://geojson.org/) of the area covered by the truck.", required = true)
   public String getRegionGeoJson() {
     return regionGeoJson;
@@ -53,8 +65,8 @@ public class Truck extends Hop {
   /**
    * The truck's number plate.
    * @return numberPlate
-  */
-  @NotNull 
+   */
+  @NotNull
   @Schema(name = "numberPlate", description = "The truck's number plate.", required = true)
   public String getNumberPlate() {
     return numberPlate;
@@ -102,10 +114,10 @@ public class Truck extends Hop {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Truck truck = (Truck) o;
-    return Objects.equals(this.regionGeoJson, truck.regionGeoJson) &&
-        Objects.equals(this.numberPlate, truck.numberPlate) &&
-        super.equals(o);
+    Truck truckDto = (Truck) o;
+    return Objects.equals(this.regionGeoJson, truckDto.regionGeoJson) &&
+            Objects.equals(this.numberPlate, truckDto.numberPlate) &&
+            super.equals(o);
   }
 
   @Override

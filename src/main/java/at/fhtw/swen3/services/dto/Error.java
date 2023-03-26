@@ -1,4 +1,5 @@
 package at.fhtw.swen3.services.dto;
+
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -14,7 +15,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("error")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-23T12:35:41.388911Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-22T13:39:57.022856Z[Etc/UTC]")
 public class Error {
 
   @JsonProperty("errorMessage")
@@ -28,8 +29,8 @@ public class Error {
   /**
    * The error message.
    * @return errorMessage
-  */
-  @NotNull 
+   */
+  @NotNull
   @Schema(name = "errorMessage", description = "The error message.", required = true)
   public String getErrorMessage() {
     return errorMessage;

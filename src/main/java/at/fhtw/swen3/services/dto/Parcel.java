@@ -5,12 +5,10 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-import javax.persistence.Column;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Builder;
 
 
 import javax.annotation.Generated;
@@ -18,21 +16,19 @@ import javax.annotation.Generated;
 /**
  * Parcel
  */
-@Getter @Setter
-@at.fhtw.swen3.persistence.entity.Parcel
+
 @JsonTypeName("parcel")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-23T12:35:41.388911Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-22T13:39:57.022856Z[Etc/UTC]")
+@Builder
 public class Parcel {
 
-  @Column
   @JsonProperty("weight")
+  @DecimalMin(value = "0.1", message = "parcel weight must be over 0.0")
   private Float weight;
 
-  @Column
   @JsonProperty("recipient")
   private Recipient recipient;
 
-  @Column
   @JsonProperty("sender")
   private Recipient sender;
 
@@ -44,8 +40,8 @@ public class Parcel {
   /**
    * Get weight
    * @return weight
-  */
-  @NotNull 
+   */
+  @NotNull
   @Schema(name = "weight", required = true)
   public Float getWeight() {
     return weight;
@@ -63,8 +59,8 @@ public class Parcel {
   /**
    * Get recipient
    * @return recipient
-  */
-  @NotNull @Valid 
+   */
+  @NotNull @Valid
   @Schema(name = "recipient", required = true)
   public Recipient getRecipient() {
     return recipient;
@@ -82,8 +78,8 @@ public class Parcel {
   /**
    * Get sender
    * @return sender
-  */
-  @NotNull @Valid 
+   */
+  @NotNull @Valid
   @Schema(name = "sender", required = true)
   public Recipient getSender() {
     return sender;
@@ -103,8 +99,8 @@ public class Parcel {
     }
     Parcel parcel = (Parcel) o;
     return Objects.equals(this.weight, parcel.weight) &&
-        Objects.equals(this.recipient, parcel.recipient) &&
-        Objects.equals(this.sender, parcel.sender);
+            Objects.equals(this.recipient, parcel.recipient) &&
+            Objects.equals(this.sender, parcel.sender);
   }
 
   @Override

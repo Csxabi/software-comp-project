@@ -6,10 +6,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
 
 
 import javax.annotation.Generated;
@@ -20,7 +24,8 @@ import javax.annotation.Generated;
 
 
 @JsonTypeName("warehouse")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-23T12:35:41.388911Z[Etc/UTC]")
+//@EqualsAndHashCode(callSuper = true)
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-22T13:39:57.022856Z[Etc/UTC]")
 public class Warehouse extends Hop {
 
   @JsonProperty("level")
@@ -30,6 +35,12 @@ public class Warehouse extends Hop {
   @Valid
   private List<WarehouseNextHops> nextHops = new ArrayList<>();
 
+  public Warehouse(String hopType, String code, String description, Integer processingDelayMins, String locationName, GeoCoordinate locationCoordinates, Integer level, List<WarehouseNextHops> nextHops) {
+    super(hopType, code, description, processingDelayMins, locationName, locationCoordinates);
+    this.level = level;
+    this.nextHops = nextHops;
+  }
+
   public Warehouse level(Integer level) {
     this.level = level;
     return this;
@@ -38,8 +49,8 @@ public class Warehouse extends Hop {
   /**
    * Get level
    * @return level
-  */
-  @NotNull 
+   */
+  @NotNull
   @Schema(name = "level", required = true)
   public Integer getLevel() {
     return level;
@@ -62,8 +73,8 @@ public class Warehouse extends Hop {
   /**
    * Next hops after this warehouse (warehouses or trucks).
    * @return nextHops
-  */
-  @NotNull @Valid 
+   */
+  @NotNull @Valid
   @Schema(name = "nextHops", description = "Next hops after this warehouse (warehouses or trucks).", required = true)
   public List<WarehouseNextHops> getNextHops() {
     return nextHops;
@@ -113,8 +124,8 @@ public class Warehouse extends Hop {
     }
     Warehouse warehouse = (Warehouse) o;
     return Objects.equals(this.level, warehouse.level) &&
-        Objects.equals(this.nextHops, warehouse.nextHops) &&
-        super.equals(o);
+            Objects.equals(this.nextHops, warehouse.nextHops) &&
+            super.equals(o);
   }
 
   @Override

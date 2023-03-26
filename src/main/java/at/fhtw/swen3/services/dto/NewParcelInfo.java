@@ -1,20 +1,12 @@
 package at.fhtw.swen3.services.dto;
 
 import java.util.Objects;
-
-import at.fhtw.swen3.persistence.entity.Parcel;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
+import lombok.Builder;
 
 
 import javax.annotation.Generated;
@@ -22,15 +14,14 @@ import javax.annotation.Generated;
 /**
  * NewParcelInfo
  */
-@Getter @Setter
-@Parcel
+
 @JsonTypeName("newParcelInfo")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-23T12:35:41.388911Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-22T13:39:57.022856Z[Etc/UTC]")
+@Builder
 public class NewParcelInfo {
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
 
   @JsonProperty("trackingId")
-  @Column
+  @Pattern(regexp = "^[A-Z0-9]{9}$", message = "must match regex (9 digits: upper case and numbers)")
   private String trackingId;
 
   public NewParcelInfo trackingId(String trackingId) {
@@ -39,14 +30,15 @@ public class NewParcelInfo {
   }
 
   /**
-   * The tracking ID of the parcel. 
+   * The tracking ID of the parcel.
    * @return trackingId
-  */
-  @Pattern(regexp = "^[A-Z0-9]{9}$") 
+   */
+  @Pattern(regexp = "^[A-Z0-9]{9}$")
   @Schema(name = "trackingId", example = "PYJRB4HZ6", description = "The tracking ID of the parcel. ", required = false)
   public String getTrackingId() {
     return trackingId;
   }
+
   public void setTrackingId(String trackingId) {
     this.trackingId = trackingId;
   }
