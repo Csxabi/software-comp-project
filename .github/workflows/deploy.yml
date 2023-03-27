@@ -5,7 +5,7 @@ on:
     workflows: ["Master CI"]
     types: 
       - completed
-#ok bro
+
 # Deploy's Job
 jobs:  
   deploy:
