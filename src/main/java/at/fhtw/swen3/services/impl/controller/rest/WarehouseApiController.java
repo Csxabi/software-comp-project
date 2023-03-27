@@ -1,11 +1,11 @@
 package at.fhtw.swen3.services.impl.controller.rest;
 
 
+import at.fhtw.swen3.services.impl.controller.WarehouseApi;
 import at.fhtw.swen3.services.HopService;
 import at.fhtw.swen3.services.WarehouseService;
 import at.fhtw.swen3.services.dto.Hop;
 import at.fhtw.swen3.services.dto.Warehouse;
-import at.fhtw.swen3.services.impl.controller.WarehouseApi;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +15,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.request.NativeWebRequest;
 
-import javax.annotation.Generated;
 import java.sql.SQLException;
 import java.util.Optional;
-
+import javax.annotation.Generated;
 @RequiredArgsConstructor
 @Slf4j
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-09-22T13:39:57.022856Z[Etc/UTC]")

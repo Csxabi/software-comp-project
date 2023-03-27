@@ -30,10 +30,10 @@ public class NewParcelInfo {
   }
 
   /**
-   * The tracking ID of the parcel.
+   * The tracking ID of the parcel. 
    * @return trackingId
-   */
-  @Pattern(regexp = "^[A-Z0-9]{9}$")
+  */
+  @Pattern(regexp = "^[A-Z0-9]{9}$") 
   @Schema(name = "trackingId", example = "PYJRB4HZ6", description = "The tracking ID of the parcel. ", required = false)
   public String getTrackingId() {
     return trackingId;

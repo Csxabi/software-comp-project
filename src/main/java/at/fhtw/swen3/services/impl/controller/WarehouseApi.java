@@ -43,26 +43,26 @@ public interface WarehouseApi {
      * or No hierarchy loaded yet. (status code 404)
      */
     @Operation(
-            operationId = "exportWarehouses",
-            summary = "Exports the hierarchy of Warehouse and Truck objects. ",
-            tags = { "warehouse-management" },
-            responses = {
-                    @ApiResponse(responseCode = "200", description = "Successful response", content = {
-                            @Content(mediaType = "application/json", schema = @Schema(implementation = Warehouse.class))
-                    }),
-                    @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
-                            @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
-                    }),
-                    @ApiResponse(responseCode = "404", description = "No hierarchy loaded yet.")
-            }
+        operationId = "exportWarehouses",
+        summary = "Exports the hierarchy of Warehouse and Truck objects. ",
+        tags = { "warehouse-management" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Successful response", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Warehouse.class))
+            }),
+            @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
+            }),
+            @ApiResponse(responseCode = "404", description = "No hierarchy loaded yet.")
+        }
     )
     @RequestMapping(
-            method = RequestMethod.GET,
-            value = "/warehouse",
-            produces = { "application/json" }
+        method = RequestMethod.GET,
+        value = "/warehouse",
+        produces = { "application/json" }
     )
     default ResponseEntity<Warehouse> exportWarehouses(
-
+        
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
@@ -87,26 +87,26 @@ public interface WarehouseApi {
      *         or No hop with the specified id could be found. (status code 404)
      */
     @Operation(
-            operationId = "getWarehouse",
-            summary = "Get a certain warehouse or truck by code",
-            tags = { "warehouse-management" },
-            responses = {
-                    @ApiResponse(responseCode = "200", description = "Successful response", content = {
-                            @Content(mediaType = "application/json", schema = @Schema(implementation = Hop.class))
-                    }),
-                    @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
-                            @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
-                    }),
-                    @ApiResponse(responseCode = "404", description = "No hop with the specified id could be found.")
-            }
+        operationId = "getWarehouse",
+        summary = "Get a certain warehouse or truck by code",
+        tags = { "warehouse-management" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Successful response", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Hop.class))
+            }),
+            @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
+            }),
+            @ApiResponse(responseCode = "404", description = "No hop with the specified id could be found.")
+        }
     )
     @RequestMapping(
-            method = RequestMethod.GET,
-            value = "/warehouse/{code}",
-            produces = { "application/json" }
+        method = RequestMethod.GET,
+        value = "/warehouse/{code}",
+        produces = { "application/json" }
     )
     default ResponseEntity<Hop> getWarehouse(
-            @Parameter(name = "code", description = "", required = true) @PathVariable("code") String code
+        @Parameter(name = "code", description = "", required = true) @PathVariable("code") String code
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
@@ -123,31 +123,31 @@ public interface WarehouseApi {
 
 
     /**
-     * POST /warehouse : Imports a hierarchy of Warehouse and Truck objects.
+     * POST /warehouse : Imports a hierarchy of Warehouse and Truck objects. 
      *
      * @param warehouse  (required)
      * @return Successfully loaded. (status code 200)
      *         or The operation failed due to an error. (status code 400)
      */
     @Operation(
-            operationId = "importWarehouses",
-            summary = "Imports a hierarchy of Warehouse and Truck objects. ",
-            tags = { "warehouse-management" },
-            responses = {
-                    @ApiResponse(responseCode = "200", description = "Successfully loaded."),
-                    @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
-                            @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
-                    })
-            }
+        operationId = "importWarehouses",
+        summary = "Imports a hierarchy of Warehouse and Truck objects. ",
+        tags = { "warehouse-management" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Successfully loaded."),
+            @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
+            })
+        }
     )
     @RequestMapping(
-            method = RequestMethod.POST,
-            value = "/warehouse",
-            produces = { "application/json" },
-            consumes = { "application/json" }
+        method = RequestMethod.POST,
+        value = "/warehouse",
+        produces = { "application/json" },
+        consumes = { "application/json" }
     )
     default ResponseEntity<Void> importWarehouses(
-            @Parameter(name = "Warehouse", description = "", required = true) @Valid @RequestBody Warehouse warehouse
+        @Parameter(name = "Warehouse", description = "", required = true) @Valid @RequestBody Warehouse warehouse
     ) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 

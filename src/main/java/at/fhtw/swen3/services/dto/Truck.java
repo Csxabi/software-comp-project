@@ -46,8 +46,8 @@ public class Truck extends Hop {
   /**
    * GeoJSON (https://geojson.org/) of the area covered by the truck.
    * @return regionGeoJson
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "regionGeoJson", description = "GeoJSON (https://geojson.org/) of the area covered by the truck.", required = true)
   public String getRegionGeoJson() {
     return regionGeoJson;
@@ -65,8 +65,8 @@ public class Truck extends Hop {
   /**
    * The truck's number plate.
    * @return numberPlate
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "numberPlate", description = "The truck's number plate.", required = true)
   public String getNumberPlate() {
     return numberPlate;
@@ -116,8 +116,8 @@ public class Truck extends Hop {
     }
     Truck truckDto = (Truck) o;
     return Objects.equals(this.regionGeoJson, truckDto.regionGeoJson) &&
-            Objects.equals(this.numberPlate, truckDto.numberPlate) &&
-            super.equals(o);
+        Objects.equals(this.numberPlate, truckDto.numberPlate) &&
+        super.equals(o);
   }
 
   @Override

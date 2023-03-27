@@ -36,8 +36,8 @@ public class WarehouseNextHops {
   /**
    * Get traveltimeMins
    * @return traveltimeMins
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "traveltimeMins", required = true)
   public Integer getTraveltimeMins() {
     return traveltimeMins;
@@ -55,8 +55,8 @@ public class WarehouseNextHops {
   /**
    * Get hop
    * @return hop
-   */
-  @NotNull @Valid
+  */
+  @NotNull @Valid 
   @Schema(name = "hop", required = true)
   public Hop getHop() {
     return hop;
@@ -76,7 +76,7 @@ public class WarehouseNextHops {
     }
     WarehouseNextHops warehouseNextHops = (WarehouseNextHops) o;
     return Objects.equals(this.traveltimeMins, warehouseNextHops.traveltimeMins) &&
-            Objects.equals(this.hop, warehouseNextHops.hop);
+        Objects.equals(this.hop, warehouseNextHops.hop);
   }
 
   @Override

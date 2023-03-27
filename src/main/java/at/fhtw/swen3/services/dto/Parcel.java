@@ -40,8 +40,8 @@ public class Parcel {
   /**
    * Get weight
    * @return weight
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "weight", required = true)
   public Float getWeight() {
     return weight;
@@ -59,8 +59,8 @@ public class Parcel {
   /**
    * Get recipient
    * @return recipient
-   */
-  @NotNull @Valid
+  */
+  @NotNull @Valid 
   @Schema(name = "recipient", required = true)
   public Recipient getRecipient() {
     return recipient;
@@ -78,8 +78,8 @@ public class Parcel {
   /**
    * Get sender
    * @return sender
-   */
-  @NotNull @Valid
+  */
+  @NotNull @Valid 
   @Schema(name = "sender", required = true)
   public Recipient getSender() {
     return sender;
@@ -99,8 +99,8 @@ public class Parcel {
     }
     Parcel parcel = (Parcel) o;
     return Objects.equals(this.weight, parcel.weight) &&
-            Objects.equals(this.recipient, parcel.recipient) &&
-            Objects.equals(this.sender, parcel.sender);
+        Objects.equals(this.recipient, parcel.recipient) &&
+        Objects.equals(this.sender, parcel.sender);
   }
 
   @Override

@@ -29,8 +29,8 @@ public class Error {
   /**
    * The error message.
    * @return errorMessage
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "errorMessage", description = "The error message.", required = true)
   public String getErrorMessage() {
     return errorMessage;

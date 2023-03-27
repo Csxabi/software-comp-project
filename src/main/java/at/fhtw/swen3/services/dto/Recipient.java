@@ -49,8 +49,8 @@ public class Recipient {
   /**
    * Name of person or company.
    * @return name
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "name", description = "Name of person or company.", required = true)
   public String getName() {
     return name;
@@ -68,8 +68,8 @@ public class Recipient {
   /**
    * Street
    * @return street
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "street", description = "Street", required = true)
   public String getStreet() {
     return street;
@@ -87,8 +87,8 @@ public class Recipient {
   /**
    * Postalcode
    * @return postalCode
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "postalCode", description = "Postalcode", required = true)
   public String getPostalCode() {
     return postalCode;
@@ -106,8 +106,8 @@ public class Recipient {
   /**
    * City
    * @return city
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "city", description = "City", required = true)
   public String getCity() {
     return city;
@@ -125,8 +125,8 @@ public class Recipient {
   /**
    * Country
    * @return country
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "country", description = "Country", required = true)
   public String getCountry() {
     return country;
@@ -146,10 +146,10 @@ public class Recipient {
     }
     Recipient recipient = (Recipient) o;
     return Objects.equals(this.name, recipient.name) &&
-            Objects.equals(this.street, recipient.street) &&
-            Objects.equals(this.postalCode, recipient.postalCode) &&
-            Objects.equals(this.city, recipient.city) &&
-            Objects.equals(this.country, recipient.country);
+        Objects.equals(this.street, recipient.street) &&
+        Objects.equals(this.postalCode, recipient.postalCode) &&
+        Objects.equals(this.city, recipient.city) &&
+        Objects.equals(this.country, recipient.country);
   }
 
   @Override

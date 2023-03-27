@@ -1,14 +1,12 @@
 package at.fhtw.swen3.controller.rest;
 
-import at.fhtw.swen3.persistence.entities.HopArrivalEntity;
-import at.fhtw.swen3.persistence.entities.ParcelEntity;
-import at.fhtw.swen3.persistence.entities.RecipientEntity;
+import at.fhtw.swen3.services.impl.controller.rest.ParcelApiController;
+import at.fhtw.swen3.persistence.entities.*;
 import at.fhtw.swen3.persistence.repositories.ParcelRepository;
 import at.fhtw.swen3.services.dto.NewParcelInfo;
 import at.fhtw.swen3.services.dto.Parcel;
 import at.fhtw.swen3.services.dto.Recipient;
 import at.fhtw.swen3.services.dto.TrackingInformation;
-import at.fhtw.swen3.services.impl.controller.rest.ParcelApiController;
 import at.fhtw.swen3.services.mapper.ParcelMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -70,8 +68,7 @@ class ParcelApiControllerTest {
         ResponseEntity<Void> delivery = parcelApiController.reportParcelDelivery(parcelEntity.getTrackingId());
         assertEquals(new ResponseEntity<>( HttpStatus.CREATED), delivery);
         try {
-            assertEquals(parcelRepository.findByTrackingId(parcelEntity.getTrackingId()).getDeliveryStatus(),
-                    TrackingInformation.StateEnum.DELIVERED);
+            assertEquals(parcelRepository.findByTrackingId(parcelEntity.getTrackingId()).getDeliveryStatus(), TrackingInformation.StateEnum.DELIVERED);
         } catch (SQLException e) {
             log.error(e.getMessage());
         }

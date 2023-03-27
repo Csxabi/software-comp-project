@@ -24,6 +24,6 @@ public class SpringDocConfiguration {
                                 )
                                 .version("1.22.1")
                 )
-                ;
+        ;
     }
 }

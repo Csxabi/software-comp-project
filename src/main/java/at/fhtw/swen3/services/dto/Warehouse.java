@@ -49,8 +49,8 @@ public class Warehouse extends Hop {
   /**
    * Get level
    * @return level
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "level", required = true)
   public Integer getLevel() {
     return level;
@@ -73,8 +73,8 @@ public class Warehouse extends Hop {
   /**
    * Next hops after this warehouse (warehouses or trucks).
    * @return nextHops
-   */
-  @NotNull @Valid
+  */
+  @NotNull @Valid 
   @Schema(name = "nextHops", description = "Next hops after this warehouse (warehouses or trucks).", required = true)
   public List<WarehouseNextHops> getNextHops() {
     return nextHops;
@@ -124,8 +124,8 @@ public class Warehouse extends Hop {
     }
     Warehouse warehouse = (Warehouse) o;
     return Objects.equals(this.level, warehouse.level) &&
-            Objects.equals(this.nextHops, warehouse.nextHops) &&
-            super.equals(o);
+        Objects.equals(this.nextHops, warehouse.nextHops) &&
+        super.equals(o);
   }
 
   @Override

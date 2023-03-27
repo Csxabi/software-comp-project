@@ -30,13 +30,13 @@ public class TrackingInformation {
    */
   public enum StateEnum {
     PICKUP("Pickup"),
-
+    
     INTRANSPORT("InTransport"),
-
+    
     INTRUCKDELIVERY("InTruckDelivery"),
-
+    
     TRANSFERRED("Transferred"),
-
+    
     DELIVERED("Delivered");
 
     private String value;
@@ -85,8 +85,8 @@ public class TrackingInformation {
   /**
    * State of the parcel.
    * @return state
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "state", description = "State of the parcel.", required = true)
   public StateEnum getState() {
     return state;
@@ -109,8 +109,8 @@ public class TrackingInformation {
   /**
    * Hops visited in the past.
    * @return visitedHops
-   */
-  @NotNull @Valid
+  */
+  @NotNull @Valid 
   @Schema(name = "visitedHops", description = "Hops visited in the past.", required = true)
   public List<HopArrival> getVisitedHops() {
     return visitedHops;
@@ -133,8 +133,8 @@ public class TrackingInformation {
   /**
    * Hops coming up in the future - their times are estimations.
    * @return futureHops
-   */
-  @NotNull @Valid
+  */
+  @NotNull @Valid 
   @Schema(name = "futureHops", description = "Hops coming up in the future - their times are estimations.", required = true)
   public List<HopArrival> getFutureHops() {
     return futureHops;
@@ -154,8 +154,8 @@ public class TrackingInformation {
     }
     TrackingInformation trackingInformation = (TrackingInformation) o;
     return Objects.equals(this.state, trackingInformation.state) &&
-            Objects.equals(this.visitedHops, trackingInformation.visitedHops) &&
-            Objects.equals(this.futureHops, trackingInformation.futureHops);
+        Objects.equals(this.visitedHops, trackingInformation.visitedHops) &&
+        Objects.equals(this.futureHops, trackingInformation.futureHops);
   }
 
   @Override

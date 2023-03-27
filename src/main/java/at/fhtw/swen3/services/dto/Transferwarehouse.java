@@ -46,8 +46,8 @@ public class Transferwarehouse extends Hop {
   /**
    * GeoJSON (https://geojson.org/) of the area covered by the logistics partner.
    * @return regionGeoJson
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "regionGeoJson", description = "GeoJSON (https://geojson.org/) of the area covered by the logistics partner.", required = true)
   public String getRegionGeoJson() {
     return regionGeoJson;
@@ -65,8 +65,8 @@ public class Transferwarehouse extends Hop {
   /**
    * Name of the logistics partner.
    * @return logisticsPartner
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "logisticsPartner", description = "Name of the logistics partner.", required = true)
   public String getLogisticsPartner() {
     return logisticsPartner;
@@ -84,8 +84,8 @@ public class Transferwarehouse extends Hop {
   /**
    * BaseURL of the logistics partner's REST service.
    * @return logisticsPartnerUrl
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "logisticsPartnerUrl", description = "BaseURL of the logistics partner's REST service.", required = true)
   public String getLogisticsPartnerUrl() {
     return logisticsPartnerUrl;
@@ -135,9 +135,9 @@ public class Transferwarehouse extends Hop {
     }
     Transferwarehouse transferwarehouse = (Transferwarehouse) o;
     return Objects.equals(this.regionGeoJson, transferwarehouse.regionGeoJson) &&
-            Objects.equals(this.logisticsPartner, transferwarehouse.logisticsPartner) &&
-            Objects.equals(this.logisticsPartnerUrl, transferwarehouse.logisticsPartnerUrl) &&
-            super.equals(o);
+        Objects.equals(this.logisticsPartner, transferwarehouse.logisticsPartner) &&
+        Objects.equals(this.logisticsPartnerUrl, transferwarehouse.logisticsPartnerUrl) &&
+        super.equals(o);
   }
 
   @Override

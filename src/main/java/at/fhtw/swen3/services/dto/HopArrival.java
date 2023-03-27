@@ -44,8 +44,8 @@ public class HopArrival {
   /**
    * Unique CODE of the hop.
    * @return code
-   */
-  @NotNull @Pattern(regexp = "^[A-Z]{4}\\d{1,4}$")
+  */
+  @NotNull @Pattern(regexp = "^[A-Z]{4}\\d{1,4}$") 
   @Schema(name = "code", description = "Unique CODE of the hop.", required = true)
   public String getCode() {
     return code;
@@ -63,8 +63,8 @@ public class HopArrival {
   /**
    * Description of the hop.
    * @return description
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "description", description = "Description of the hop.", required = true)
   public String getDescription() {
     return description;
@@ -82,8 +82,8 @@ public class HopArrival {
   /**
    * The date/time the parcel arrived at the hop.
    * @return dateTime
-   */
-  @NotNull @Valid
+  */
+  @NotNull @Valid 
   @Schema(name = "dateTime", description = "The date/time the parcel arrived at the hop.", required = true)
   public OffsetDateTime getDateTime() {
     return dateTime;
@@ -103,8 +103,8 @@ public class HopArrival {
     }
     HopArrival hopArrival = (HopArrival) o;
     return Objects.equals(this.code, hopArrival.code) &&
-            Objects.equals(this.description, hopArrival.description) &&
-            Objects.equals(this.dateTime, hopArrival.dateTime);
+        Objects.equals(this.description, hopArrival.description) &&
+        Objects.equals(this.dateTime, hopArrival.dateTime);
   }
 
   @Override

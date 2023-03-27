@@ -40,8 +40,8 @@ public class GeoCoordinate {
   /**
    * Latitude of the coordinate.
    * @return lat
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "lat", description = "Latitude of the coordinate.", required = true)
   public Double getLat() {
     return lat;
@@ -59,8 +59,8 @@ public class GeoCoordinate {
   /**
    * Longitude of the coordinate.
    * @return lon
-   */
-  @NotNull
+  */
+  @NotNull 
   @Schema(name = "lon", description = "Longitude of the coordinate.", required = true)
   public Double getLon() {
     return lon;
@@ -80,7 +80,7 @@ public class GeoCoordinate {
     }
     GeoCoordinate geoCoordinate = (GeoCoordinate) o;
     return Objects.equals(this.lat, geoCoordinate.lat) &&
-            Objects.equals(this.lon, geoCoordinate.lon);
+        Objects.equals(this.lon, geoCoordinate.lon);
   }
 
   @Override
