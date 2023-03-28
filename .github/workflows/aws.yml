@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI/CD Pipeline Master
 on:
   push:
     branches: ["master"]
@@ -7,8 +7,8 @@ on:
 
 env:
   AWS_REGION: us-east-1 # set this to your preferred AWS region, e.g. us-west-1
-  EB_APPLICATION_NAME: software-comp-beanstalk # set this to your Elastic Beanstalk application name
-  EB_ENVIRONMENT_NAME: Softwarecompbeanstalk-env # set this to your Elastic Beanstalk environment name
+  EB_APPLICATION_NAME: software-comp-projectv2 # set this to your Elastic Beanstalk application name
+  EB_ENVIRONMENT_NAME: Softwarecompprojectv2-env # set this to your Elastic Beanstalk environment name
 
 permissions:
   contents: read
@@ -51,7 +51,7 @@ jobs:
     needs: build
     name:
       Deploy to Elastic Beanstalk
-    #Will run steps on latest version of ubuntu
+      #Will run steps on latest version of ubuntu
     runs-on: ubuntu-latest
     steps:
       - name: Download JAR
@@ -63,7 +63,7 @@ jobs:
       - name: Package and deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v21
         with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_access_key: ${{ secrets.AWS_ACCES_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
           application_name: ${{ env.EB_APPLICATION_NAME }}
