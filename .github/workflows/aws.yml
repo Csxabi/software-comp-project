@@ -7,8 +7,8 @@ on:
 
 env:
   AWS_REGION: us-east-1 # set this to your preferred AWS region, e.g. us-west-1
-  EB_APPLICATION_NAME: software-comp-beanstalk # set this to your Elastic Beanstalk application name
-  EB_ENVIRONMENT_NAME: Softwarecompbeanstalk-env # set this to your Elastic Beanstalk environment name
+  EB_APPLICATION_NAME: software-comp-projectv2 # set this to your Elastic Beanstalk application name
+  EB_ENVIRONMENT_NAME: Softwarecompprojectv2-env # set this to your Elastic Beanstalk environment name
 
 permissions:
   contents: read
