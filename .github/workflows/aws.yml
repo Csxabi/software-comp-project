@@ -70,5 +70,5 @@ jobs:
           environment_name: ${{ env.EB_ENVIRONMENT_NAME }}
           use_existing_version_if_available: true
           version_label: ${{github.SHA}}
-          region: us-east-1 #VERY IMPORTANT: AWS Region where initially Applciation was created in AWS EBS. We created inus-east-1 which is N-Virginia
+          region: ${{ env.AWS_REGION }} #VERY IMPORTANT: AWS Region where initially Applciation was created in AWS EBS. We created inus-east-1 which is N-Virginia
           deployment_package: openapi-spring-1.22.1.jar #download artifacts from previous job
