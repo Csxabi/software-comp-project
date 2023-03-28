@@ -63,7 +63,7 @@ jobs:
       - name: Package and deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v21
         with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_access_key: ${{ secrets.AWS_ACCES_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
           application_name: ${{ env.EB_APPLICATION_NAME }}
