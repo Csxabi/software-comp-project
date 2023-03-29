@@ -8,15 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="software-comp-project" />
+        <module name="integration-tests" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="integration-tests" target="17" />
       <module name="software-comp-project" target="1.8" />
       <module name="springbootInWindows" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="integration-tests" options="-parameters" />
       <module name="software-comp-project" options="-parameters" />
       <module name="springbootInWindows" options="-parameters" />
     </option>

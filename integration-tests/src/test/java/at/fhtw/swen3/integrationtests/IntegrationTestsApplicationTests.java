@@ -48,14 +48,14 @@ class IntegrationTestsApplicationTests {
                 {
                   "weight": 0.1,
                   "recipient": {
-                     "name": "Clemens Rinner",
+                     "name": "Nagy Csapai",
                      "street": "Heigerleinstraße 38/38",
                      "postalCode": "A-1030",
                      "city": "Wien",
                      "country": "Österreich"
                    },
                   "sender": {
-                     "name": "David Kenner",
+                     "name": "max musterman",
                      "street": "Baumgasse 60/70",
                      "postalCode": "A-1160",
                      "city": "Wien",
