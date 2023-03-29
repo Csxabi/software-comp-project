@@ -53,24 +53,24 @@ public interface ParcelApi {
      *         or Parcel does not exist with this tracking ID.  (status code 404)
      */
     @Operation(
-        operationId = "reportParcelDelivery",
-        summary = "Report that a Parcel has been delivered at it's final destination address. ",
-        tags = { "staff" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "Successfully reported hop."),
-            @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Parcel does not exist with this tracking ID. ")
-        }
+            operationId = "reportParcelDelivery",
+            summary = "Report that a Parcel has been delivered at it's final destination address. ",
+            tags = { "staff" },
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Successfully reported hop."),
+                    @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
+                            @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
+                    }),
+                    @ApiResponse(responseCode = "404", description = "Parcel does not exist with this tracking ID. ")
+            }
     )
     @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/parcel/{trackingId}/reportDelivery/",
-        produces = { "application/json" }
+            method = RequestMethod.POST,
+            value = "/parcel/{trackingId}/reportDelivery/",
+            produces = { "application/json" }
     )
     default ResponseEntity<Void> reportParcelDelivery(
-        @Pattern(regexp = "^[A-Z0-9]{9}$") @Parameter(name = "trackingId", description = "The tracking ID of the parcel. E.g. PYJRB4HZ6 ", required = true) @PathVariable("trackingId") String trackingId
+            @Pattern(regexp = "^[A-Z0-9]{9}$") @Parameter(name = "trackingId", description = "The tracking ID of the parcel. E.g. PYJRB4HZ6 ", required = true) @PathVariable("trackingId") String trackingId
     ) {
         //hopArrivalService.reportDelivery(trackingId, "trackingId");
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -87,25 +87,25 @@ public interface ParcelApi {
      *         or The operation failed due to an error. (status code 400)
      */
     @Operation(
-        operationId = "reportParcelHop",
-        summary = "Report that a Parcel has arrived at a certain hop either Warehouse or Truck. ",
-        tags = { "staff" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "Successfully reported hop."),
-            @ApiResponse(responseCode = "404", description = "Parcel does not exist with this tracking ID or hop with code not found. "),
-            @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
-            })
-        }
+            operationId = "reportParcelHop",
+            summary = "Report that a Parcel has arrived at a certain hop either Warehouse or Truck. ",
+            tags = { "staff" },
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Successfully reported hop."),
+                    @ApiResponse(responseCode = "404", description = "Parcel does not exist with this tracking ID or hop with code not found. "),
+                    @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
+                            @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
+                    })
+            }
     )
     @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/parcel/{trackingId}/reportHop/{code}",
-        produces = { "application/json" }
+            method = RequestMethod.POST,
+            value = "/parcel/{trackingId}/reportHop/{code}",
+            produces = { "application/json" }
     )
     default ResponseEntity<Void> reportParcelHop(
-        @Pattern(regexp = "^[A-Z0-9]{9}$") @Parameter(name = "trackingId", description = "The tracking ID of the parcel. E.g. PYJRB4HZ6 ", required = true) @PathVariable("trackingId") String trackingId,
-        @Pattern(regexp = "^[A-Z]{4}\\d{1,4}$") @Parameter(name = "code", description = "The Code of the hop (Warehouse or Truck).", required = true) @PathVariable("code") String code
+            @Pattern(regexp = "^[A-Z0-9]{9}$") @Parameter(name = "trackingId", description = "The tracking ID of the parcel. E.g. PYJRB4HZ6 ", required = true) @PathVariable("trackingId") String trackingId,
+            @Pattern(regexp = "^[A-Z]{4}\\d{1,4}$") @Parameter(name = "code", description = "The Code of the hop (Warehouse or Truck).", required = true) @PathVariable("code") String code
     ) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
@@ -121,29 +121,29 @@ public interface ParcelApi {
      *         or The address of sender or receiver was not found. (status code 404)
      */
     @Operation(
-        operationId = "submitParcel",
-        summary = "Submit a new parcel to the logistics service. ",
-        tags = { "sender" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Successfully submitted the new parcel", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = NewParcelInfo.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "The address of sender or receiver was not found.", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
-            })
-        }
+            operationId = "submitParcel",
+            summary = "Submit a new parcel to the logistics service. ",
+            tags = { "sender" },
+            responses = {
+                    @ApiResponse(responseCode = "201", description = "Successfully submitted the new parcel", content = {
+                            @Content(mediaType = "application/json", schema = @Schema(implementation = NewParcelInfo.class))
+                    }),
+                    @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
+                            @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
+                    }),
+                    @ApiResponse(responseCode = "404", description = "The address of sender or receiver was not found.", content = {
+                            @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
+                    })
+            }
     )
     @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/parcel",
-        produces = { "application/json" },
-        consumes = { "application/json" }
+            method = RequestMethod.POST,
+            value = "/parcel",
+            produces = { "application/json" },
+            consumes = { "application/json" }
     )
     default ResponseEntity<NewParcelInfo> submitParcel(
-        @Parameter(name = "Parcel", description = "", required = true) @Valid @RequestBody Parcel parcel
+            @RequestBody Parcel parcel
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
@@ -169,26 +169,26 @@ public interface ParcelApi {
      *         or Parcel does not exist with this tracking ID. (status code 404)
      */
     @Operation(
-        operationId = "trackParcel",
-        summary = "Find the latest state of a parcel by its tracking ID. ",
-        tags = { "recipient" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "Parcel exists, here's the tracking information.", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TrackingInformation.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Parcel does not exist with this tracking ID.")
-        }
+            operationId = "trackParcel",
+            summary = "Find the latest state of a parcel by its tracking ID. ",
+            tags = { "recipient" },
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Parcel exists, here's the tracking information.", content = {
+                            @Content(mediaType = "application/json", schema = @Schema(implementation = TrackingInformation.class))
+                    }),
+                    @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
+                            @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
+                    }),
+                    @ApiResponse(responseCode = "404", description = "Parcel does not exist with this tracking ID.")
+            }
     )
     @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/parcel/{trackingId}",
-        produces = { "application/json" }
+            method = RequestMethod.GET,
+            value = "/parcel/{trackingId}",
+            produces = { "application/json" }
     )
     default ResponseEntity<TrackingInformation> trackParcel(
-        @Pattern(regexp = "^[A-Z0-9]{9}$") @Parameter(name = "trackingId", description = "The tracking ID of the parcel. E.g. PYJRB4HZ6 ", required = true) @PathVariable("trackingId") String trackingId
+            @Pattern(regexp = "^[A-Z0-9]{9}$") @Parameter(name = "trackingId", description = "The tracking ID of the parcel. E.g. PYJRB4HZ6 ", required = true) @PathVariable("trackingId") String trackingId
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
@@ -214,28 +214,28 @@ public interface ParcelApi {
      *         or A parcel with the specified trackingID is already in the system. (status code 409)
      */
     @Operation(
-        operationId = "transitionParcel",
-        summary = "Transfer an existing parcel into the system from the service of a logistics partner. ",
-        tags = { "logisticsPartner" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "Successfully transitioned the parcel", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = NewParcelInfo.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "A parcel with the specified trackingID is already in the system.")
-        }
+            operationId = "transitionParcel",
+            summary = "Transfer an existing parcel into the system from the service of a logistics partner. ",
+            tags = { "logisticsPartner" },
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Successfully transitioned the parcel", content = {
+                            @Content(mediaType = "application/json", schema = @Schema(implementation = NewParcelInfo.class))
+                    }),
+                    @ApiResponse(responseCode = "400", description = "The operation failed due to an error.", content = {
+                            @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
+                    }),
+                    @ApiResponse(responseCode = "409", description = "A parcel with the specified trackingID is already in the system.")
+            }
     )
     @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/parcel/{trackingId}",
-        produces = { "application/json" },
-        consumes = { "application/json" }
+            method = RequestMethod.POST,
+            value = "/parcel/{trackingId}",
+            produces = { "application/json" },
+            consumes = { "application/json" }
     )
     default ResponseEntity<NewParcelInfo> transitionParcel(
-        @Pattern(regexp = "^[A-Z0-9]{9}$") @Parameter(name = "trackingId", description = "The tracking ID of the parcel. E.g. PYJRB4HZ6 ", required = true) @PathVariable("trackingId") String trackingId,
-        @Parameter(name = "Parcel", description = "", required = true) @Valid @RequestBody Parcel parcel
+            @Pattern(regexp = "^[A-Z0-9]{9}$") @Parameter(name = "trackingId", description = "The tracking ID of the parcel. E.g. PYJRB4HZ6 ", required = true) @PathVariable("trackingId") String trackingId,
+            @Parameter(name = "Parcel", description = "", required = true) @Valid @RequestBody Parcel parcel
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
